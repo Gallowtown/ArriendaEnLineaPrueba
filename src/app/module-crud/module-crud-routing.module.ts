@@ -5,7 +5,7 @@ import { MyOwnComponent } from './pages/my-own/my-own.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'boots',
     component: BootstrapComponent
   },
   {

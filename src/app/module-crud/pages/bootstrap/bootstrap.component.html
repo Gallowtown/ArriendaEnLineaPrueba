@@ -1,5 +1,11 @@
-<div  class="col-md-6 px-0 mx-3">
-  <h1 class="display-4 font-italic">With Bootstrap</h1>
+<div class="col-md-12 px-0 mx-3 d-flex align-items-center justify-content-around">
+  <div class="d-flex align-items-center">
+    <img src="/assets/icons/BootstrapIcon.png" width="80" height="80" class="d-inline-block align-top" alt="">
+    <h1 class="display-4 font-italic ml-3">With Bootstrap</h1>
+  </div>
+  <div>
+    <a href="#" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="add()"> New + </a>
+  </div>
 </div>
 
 <div class="container mt-5 mb-3">
@@ -7,17 +13,50 @@
     <div *ngFor="let user of users" class="col-xl-3 col-md-4 col-sm-12">
 
       <div class="card my-2">
-        <h5 class="card-header"> {{ user.id }} </h5>
+        <h5 class="card-header">  <span class="badge badge-new"> {{ user.id }} </span> User </h5>
         <div class="card-body">
           <h5 class="card-title"> {{ user.title | titlecase }} </h5>
           <p class="card-text"> {{ user.body }} </p>
           <div class="d-flex justify-content-center">
-            <a href="#" class="btn btn-primary mx-2"> Edit </a>
-            <a href="#" class="btn btn-danger mx-2"> Delete </a>
+            <a href="#" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit( user )"> Edit </a>
+            <a href="#" class="btn btn-danger mx-2" (click)="delete(user)"> Delete </a>
           </div>
         </div>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> User {{ IDField?.value != 0 ? IDField?.value : 'New'   }} </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form class="text-center border border-light p-5" [formGroup]="formUser" (ngSubmit)="save();">
+
+          <label for="validationCustom01" class="form-label"> user ID </label>
+          <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" formControlName="ID"
+            [ngClass]=" { 'is-valid' : IDField?.touched , 'is-invalid' : IDField?.errors && IDField?.touched}"
+            placeholder="ID">
+          <label for="validationCustom01" class="form-label"> user Title </label>
+          <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" formControlName="userTitle"  [ngClass]=" { 'is-valid' : userTitleField?.touched , 'is-invalid' : userTitleField?.errors && userTitleField?.touched}" placeholder="Title">
+          <label for="validationCustom01" class="form-label"> user Body </label>
+          <textarea name="" id="" cols="30" rows="10" id="defaultLoginFormEmail" formControlName="userBody"  [ngClass]=" { 'is-valid' : userBodyField?.touched , 'is-invalid' : userBodyField?.errors && userBodyField?.touched}"
+            class="form-control mb-4d"></textarea>
+          <p class="font-italic w-100 text-left" *ngIf="userBodyField?.errors"> {{ userBodyField?.value?.length }}/10 </p>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Save changes</button>
+          </div>
+        </form>
+
+      </div>
     </div>
   </div>
 </div>

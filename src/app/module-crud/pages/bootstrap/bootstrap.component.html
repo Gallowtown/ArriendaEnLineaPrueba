@@ -1,0 +1,23 @@
+<div  class="col-md-6 px-0 mx-3">
+  <h1 class="display-4 font-italic">With Bootstrap</h1>
+</div>
+
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div *ngFor="let user of users" class="col-xl-3 col-md-4 col-sm-12">
+
+      <div class="card my-2">
+        <h5 class="card-header"> {{ user.id }} </h5>
+        <div class="card-body">
+          <h5 class="card-title"> {{ user.title | titlecase }} </h5>
+          <p class="card-text"> {{ user.body }} </p>
+          <div class="d-flex justify-content-center">
+            <a href="#" class="btn btn-primary mx-2"> Edit </a>
+            <a href="#" class="btn btn-danger mx-2"> Delete </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

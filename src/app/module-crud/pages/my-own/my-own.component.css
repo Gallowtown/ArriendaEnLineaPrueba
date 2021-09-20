@@ -116,6 +116,7 @@
   bottom: -100px;
   right: -100px;
   transition: all 0.3s;
+  padding: 5px;
 }
 
 .myOwn-card:hover {
@@ -178,6 +179,26 @@
   transform: scale(1.1);
 }
 
+@media (max-width: 800px) {
+  .myOwn-form {
+    min-height: 400px;
+    min-width: 400px;
+  }
+  .myOwn-card .myOwn-card__body {
+    transition: all 0.3s;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+  .myOwn-card .myOwn-card__body-icon {
+    transition: all 0.3s;
+    bottom: -100px;
+    right: -100px;
+  }
+
+
+}
+
 @media (max-width: 500px) {
   .myOwn-container {
     padding: 2rem 0.5rem;
@@ -185,5 +206,9 @@
   .myOwn-card {
     color: #fff;
     width: 250px;
+  }
+  .myOwn-form {
+    min-height: 300px;
+    min-width: 300px;
   }
 }

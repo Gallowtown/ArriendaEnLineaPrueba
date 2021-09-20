@@ -116,7 +116,7 @@ export class MyOwnComponent implements OnInit {
     );
     console.log(newUser, index);
     if (this.formUser.valid && !this.flagEdit) {
-      this.jsonplace.newOrEditUser( newUser, 0);
+      this.jsonplace.newOrEditUser( newUser, -1);
     } else {
       this.jsonplace.newOrEditUser( newUser, index);
     }

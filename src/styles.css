@@ -1,3 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,600;1,300&display=swap');
+
+:root {
+  --light-green: #237a57;
+  --dark-green: #093028;
+}

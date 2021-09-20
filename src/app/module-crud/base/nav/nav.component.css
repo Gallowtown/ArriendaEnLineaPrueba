@@ -1,0 +1,63 @@
+/* I put own with the class name because bootstrap overlap */
+
+.navbar-own {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: 0.5s;
+  justify-content: space-between;
+  height: 78px;
+  padding: 1rem;
+  background: #093028; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #237a57,
+    #093028
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #237a57,
+    #093028
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.navbar-own__home {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.navbar-own__home:hover i {
+  transform: scale(1.2);
+}
+
+.navbar-own__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+}
+
+.navbar-own__options h2 {
+  cursor: pointer;
+  color: #fff;
+}
+
+.navbar-own__options h2:hover {
+  background: #a1ffce; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #faffd1,
+    #a1ffce
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #faffd1,
+    #a1ffce
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}

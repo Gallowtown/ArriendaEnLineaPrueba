@@ -16,6 +16,13 @@ const routes: Routes = [
         (m) => m.ModuleMainModule
       ),
   },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('src/app/module-main/module-main.module').then(
+        (m) => m.ModuleMainModule
+      ),
+  },
 ];
 
 @NgModule({

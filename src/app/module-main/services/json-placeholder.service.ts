@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { jsonPlaceholderInterface } from '../models/placeholder.interface';
+// Holi Angey!
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,6 @@ import { jsonPlaceholderInterface } from '../models/placeholder.interface';
 export class JsonPlaceholderService {
   private serviceURL: string = 'https://jsonplaceholder.typicode.com/posts';
   private _response: jsonPlaceholderInterface[] = [];
-
   private _selectedUser: jsonPlaceholderInterface = {
     userId: 0,
     id: 0,

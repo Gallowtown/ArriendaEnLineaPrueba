@@ -9,6 +9,7 @@ import { JsonPlaceholderService } from 'src/app/module-main/services/json-placeh
   styleUrls: ['./bootstrap.component.css'],
 })
 export class BootstrapComponent implements OnInit {
+
   get selectedUser(): jsonPlaceholderInterface {
     return this.jsonplace.selectedUser;
   }

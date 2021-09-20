@@ -1,1 +1,53 @@
-<p>my-own works!</p>
+<app-nav></app-nav>
+
+<div class="myOwn-container">
+
+  <span class="myOwn-add" (click)="toggleModal(); add()">
+    <img  src="/assets/icons/add-button.svg" alt="Add">
+    <p>Add another user</p>
+  </span>
+
+  <div *ngFor="let user of users" class="myOwn-card" (click)=" toggleModal(); edit( user ) " >
+    <div class="myOwn-card__flex">
+      <i class="fa fa-id-badge fa-2x" aria-hidden="true"></i>
+      <h3> {{ user.id }} </h3>
+    </div>
+    <div class="myOwn-card__flex">
+      <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+      <h4> {{ user.title | titlecase }} </h4>
+    </div>
+    <i class="fa fa-arrow-circle-right fa-4x myOwn-card__body-icon" aria-hidden="true"></i>
+    <div class="myOwn-card__body">
+      <hr class="myOwn-card__hr">
+      <p> {{ user.body }} </p>
+    </div>
+
+  </div>
+
+</div>
+
+<div *ngIf="modal" [@inOutAnimation]>
+  <div class="myOwn-modal">
+
+    <form class="myOwn-form" [formGroup]="formUser" (ngSubmit)="save();">
+        <span class="myOwn-modal__exit"><img src="/assets/icons/exit-button.svg" alt="exit" (click)=" modal = false "></span>
+
+        <label for="id" class="form-label"> user ID </label>
+        <input type="text" name="id" id="id" class="form-control mb-4" formControlName="ID"
+          [ngClass]=" { 'is-valid' : IDField?.touched , 'is-invalid' : IDField?.errors && IDField?.touched}"
+          placeholder="ID">
+        <label for="title" class="form-label"> user Title </label>
+        <input type="text" id="title" class="form-control mb-4" formControlName="userTitle"  [ngClass]=" { 'is-valid' : userTitleField?.touched , 'is-invalid' : userTitleField?.errors && userTitleField?.touched}" placeholder="Title">
+        <label for="body" class="form-label"> user Body </label>
+        <textarea id="body" cols="30" rows="10" formControlName="userBody"  [ngClass]=" { 'is-valid' : userBodyField?.touched , 'is-invalid' : userBodyField?.errors && userBodyField?.touched}"
+          class="form-control mb-4d"></textarea>
+        <p class="font-italic w-100 text-left" *ngIf="userBodyField?.errors"> {{ userBodyField?.value?.length }}/10 </p>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger"  (click)=" modal = false; delete( selectedUser ) " >Delete</button>
+          <button type="submit" class="btn btn-primary" (click)=" toggleModal() ">Save changes</button>
+        </div>
+      </form>
+
+  </div>
+</div>

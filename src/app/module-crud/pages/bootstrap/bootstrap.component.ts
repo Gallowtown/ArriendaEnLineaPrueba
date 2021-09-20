@@ -9,7 +9,6 @@ import { JsonPlaceholderService } from 'src/app/module-main/services/json-placeh
   styleUrls: ['./bootstrap.component.css'],
 })
 export class BootstrapComponent implements OnInit {
-
   get selectedUser(): jsonPlaceholderInterface {
     return this.jsonplace.selectedUser;
   }
@@ -78,14 +77,15 @@ export class BootstrapComponent implements OnInit {
       title: this.userTitleField?.value,
       body: this.userBodyField?.value,
     };
+    console.log(this.userSelected);
+
     let index = this.users.findIndex(
       (userfind) => userfind == this.userSelected
     );
-    console.log(newUser, index);
     if (this.formUser.valid && !this.flagEdit) {
-      this.jsonplace.newOrEditUser( newUser, 0);
+      this.jsonplace.newOrEditUser(newUser, -1);
     } else {
-      this.jsonplace.newOrEditUser( newUser, index);
+      this.jsonplace.newOrEditUser(newUser, index);
     }
   }
 

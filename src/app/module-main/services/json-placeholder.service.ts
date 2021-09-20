@@ -39,7 +39,9 @@ export class JsonPlaceholderService {
   }
 
   newOrEditUser( user: jsonPlaceholderInterface, index: number) {
-    if (index == 0) {
+    console.log( index );
+
+    if (index == -1) {
       this._response.push( user );
       this._response.filter((user, index) => (user.id = index + 1, user.userId = index + 1));
     } else {

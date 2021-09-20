@@ -5,10 +5,9 @@
   place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
-  background-image:
-    url("/assets/img/pattern4.jpg");
-    overflow: auto;
-    position: relative;
+  background-image: url("/assets/img/pattern4.jpg");
+  overflow: auto;
+  position: relative;
 }
 
 .myOwn-container .myOwn-add {
@@ -41,7 +40,8 @@
   margin-right: 1rem;
   height: 60px;
   transition: all 0.3s;
-  filter: invert(13%) sepia(20%) saturate(1490%) hue-rotate(117deg) brightness(103%) contrast(96%);
+  filter: invert(13%) sepia(20%) saturate(1490%) hue-rotate(117deg)
+    brightness(103%) contrast(96%);
 }
 
 .myOwn-container .myOwn-add:hover {
@@ -130,7 +130,7 @@
   width: 100%;
 }
 
-.myOwn-card:hover .myOwn-card__body-icon  {
+.myOwn-card:hover .myOwn-card__body-icon {
   transition: all 0.3s;
   bottom: -100px;
   right: -100px;
@@ -148,7 +148,6 @@
   margin: 0;
   display: grid;
   place-items: center;
-
 }
 
 .myOwn-form {
@@ -179,3 +178,12 @@
   transform: scale(1.1);
 }
 
+@media (max-width: 500px) {
+  .myOwn-container {
+    padding: 2rem 0.5rem;
+  }
+  .myOwn-card {
+    color: #fff;
+    width: 250px;
+  }
+}

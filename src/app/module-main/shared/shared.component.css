@@ -43,3 +43,21 @@
   transition: all 0.3s;
   transform: translateY(-3rem);
 }
+
+@media (max-width: 1160px) {
+  .home h1 {
+    font-size: 4rem;
+  }
+  .home-options__img-fol .home-options__img{
+    width: 200px;
+  }
+}
+
+@media (max-width: 500px) {
+  .home h1 {
+    font-size: 2rem;
+  }
+  .home-options__img-fol .home-options__img{
+    width: 100px;
+  }
+}

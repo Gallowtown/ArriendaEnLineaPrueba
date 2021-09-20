@@ -5,7 +5,7 @@
     <h1 class="display-4 font-italic ml-3">With Bootstrap</h1>
   </div>
   <div>
-    <a href="#" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="add()"> New + </a>
+    <a class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="add()"> New + </a>
   </div>
 </div>
 
@@ -19,8 +19,8 @@
           <h5 class="card-title"> {{ user.title | titlecase }} </h5>
           <p class="card-text"> {{ user.body }} </p>
           <div class="d-flex justify-content-center">
-            <a href="#" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit( user )"> Edit </a>
-            <a href="#" class="btn btn-danger mx-2" (click)="delete(user)"> Delete </a>
+            <a  class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit( user )"> Edit </a>
+            <a  class="btn btn-danger mx-2" (click)="delete(user)"> Delete </a>
           </div>
         </div>
       </div>

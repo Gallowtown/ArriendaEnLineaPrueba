@@ -4,9 +4,3 @@ export interface jsonPlaceholderInterface {
   title:  string;
   body:   string;
 }
-
-export interface potato {
-  potatoId:    number;
-  name:        string;
-  description: string;
-}

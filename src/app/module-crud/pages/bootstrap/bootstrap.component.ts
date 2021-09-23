@@ -33,7 +33,7 @@ export class BootstrapComponent implements OnInit {
     this.formUser = this.formBuilder.group({
       ID: [{ value: '', disabled: true }, [Validators.required]],
       userTitle: ['', [Validators.required]],
-      userBody: ['', [Validators.required, Validators.minLength(10)]],
+      userBody: ['', [Validators.required, Validators.maxLength(210)]],
     });
   }
 
@@ -82,10 +82,14 @@ export class BootstrapComponent implements OnInit {
     let index = this.users.findIndex(
       (userfind) => userfind == this.userSelected
     );
-    if (this.formUser.valid && !this.flagEdit) {
-      this.jsonplace.newOrEditUser(newUser, -1);
+    if (this.formUser.valid) {
+      if (  !this.flagEdit) {
+        this.jsonplace.newOrEditUser( newUser, -1);
+      } else {
+        this.jsonplace.newOrEditUser( newUser, index);
+      }
     } else {
-      this.jsonplace.newOrEditUser(newUser, index);
+      this.formUser.markAllAsTouched();
     }
   }
 

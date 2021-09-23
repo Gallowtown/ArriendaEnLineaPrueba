@@ -41,11 +41,11 @@
         <label for="body" class="form-label"> user Body </label>
         <textarea id="body" cols="30" rows="10" formControlName="userBody"  [ngClass]=" { 'is-valid' : userBodyField?.touched , 'is-invalid' : userBodyField?.errors && userBodyField?.touched}"
           class="form-control mb-4d"></textarea>
-        <p class="font-italic w-100 text-left" *ngIf="userBodyField?.errors"> {{ userBodyField?.value?.length }}/10 </p>
+        <p class="font-italic w-100 text-left" > {{ userBodyField?.value?.length }}/210 </p>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-danger"  (click)=" modal = false; delete( selectedUser ) " >Delete</button>
-          <button type="submit" class="btn btn-primary" (click)=" toggleModal() ">Save changes</button>
+          <button type="submit" class="btn btn-primary" >Save changes</button>
         </div>
       </form>
 

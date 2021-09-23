@@ -58,7 +58,7 @@ export class MyOwnComponent implements OnInit {
     this.formUser = this.formBuilder.group({
       ID: [{ value: '', disabled: true }, [Validators.required]],
       userTitle: ['', [Validators.required]],
-      userBody: ['', [Validators.required, Validators.minLength(10)]],
+      userBody: ['', [Validators.required, Validators.maxLength(210)]],
     });
   }
 
@@ -114,11 +114,15 @@ export class MyOwnComponent implements OnInit {
     let index = this.users.findIndex(
       (userfind) => userfind == this.userSelected
     );
-    console.log(newUser, index);
-    if (this.formUser.valid && !this.flagEdit) {
-      this.jsonplace.newOrEditUser( newUser, -1);
+    if (this.formUser.valid) {
+      if (  !this.flagEdit) {
+        this.jsonplace.newOrEditUser( newUser, -1);
+      } else {
+        this.jsonplace.newOrEditUser( newUser, index);
+      }
+      this.toggleModal();
     } else {
-      this.jsonplace.newOrEditUser( newUser, index);
+      this.formUser.markAllAsTouched();
     }
   }
 
